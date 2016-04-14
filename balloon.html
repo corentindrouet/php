@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#balloon
+			{
+				height:200px;
+				width:200px;
+				border-radius:50%;
+				margin:auto;
+			}
+			.red {
+				background-color:red;
+			}
+			.green {
+				background-color:green;
+			}
+			.blue {
+				background-color:blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="balloon" class="red" onclick="changecolor();" onmouseout="diminue();"></div>
+		<script>
+				function changecolor()
+				{
+					var element = document.getElementById('balloon');
+					
+					if (parseInt(element.offsetWidth) < parseInt("420"))
+					{
+						element.style.width = parseInt(element.offsetWidth) + parseInt("10") + "px"; 
+						element.style.height = parseInt(element.offsetHeight) + parseInt("10") + "px"; 
+					}
+					else
+					{
+						element.style.width = "200px";
+						element.style.height = "200px";
+					}
+					if (element.className == "red")
+						element.className = "green";
+					else if (element.className == "green")
+						element.className = "blue";
+					else if (element.className == "blue")
+						element.className = "red";
+				}
+				function diminue()
+				{
+					var element = document.getElementById('balloon');
+					if (parseInt(element.offsetWidth) > parseInt(200))
+					{
+						element.style.width = parseInt(element.offsetWidth) - parseInt("5") + "px";
+						element.style.height = parseInt(element.offsetHeight) - parseInt("5") + "px";
+					}
+					if (element.className == "green")
+						element.className = "red";
+					else if (element.className == "blue")
+						element.className = "green";
+					else if (element.className == "red")
+						element.className = "blue";
+				}
+		</script>
+	</body>
+</html>
